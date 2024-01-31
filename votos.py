@@ -46,5 +46,5 @@ if len(DPI)==13:
         print("Sus votos han sido guardados :D ")
 
     if ultima_confirmacion== "No confirmar":
-        print("Sus votos no se han guardado, intente de nuevo :(")
+        print("Sus votos no se han guardado, intente de nuevo :( pipipi )")
     
