@@ -1,8 +1,8 @@
-def saludar():
-    print("Hola, bienvenido")
+def saludar(nombre):
+    print(f"Hola, {nombre} bienvenido")
 
 
-saludar()
+saludar("Alejo")
 
 def sumar(a,b):
     return a +b
