@@ -9,6 +9,61 @@
             border: 1px solid grey;
             margin: 10px;
             padding: 10px;
+
+            body {
+                font-family: Arial, sans-serif; /*Establece una fuente legible para la pagina */
+                background-color: #f4f4f4; /* Un fondo gris claro para toda pagina */
+                color: #333; /* Texto gris oscuro para mejorar la legibilidad */
+            }
+
+            h1,
+            h2,
+            h3 {
+                color: #0056b3; /* Un color azul profundo para mejorar la legibilidad */
+            }
+
+            a {
+                color: #0087cc; /* Un azul mas claro para los enlaces */
+                text-decoration: none; /*Elimina el subrayado de los enlaces */
+            }
+
+            a:hover {
+                text-decoration: underline; /* Agrega un subrayado cuando pase el mouse sobre los enlaces */
+            }
+
+            nav ul {
+                list-style-type: none; /* Elimina los puntos de la lista predeterminados */
+                padding: 0;
+                background-color: #333; /* Le da a la barra de naavegacion un fondo oscuro */
+            }
+
+             nav li {
+                display: inline; /* Alinia los enlaces en una fila */ 
+                margin-right: 20px; /* Pone espacio entre cada enlace */
+             }
+
+             nav a {
+                color: white; /* Hace el texto sea blanco para que sea legible */
+                font-weight: bold; /* Hace que el texto sea negrita */
+             }
+
+             nav a:hover {
+                color: #ffcc00; /* Cambia el color del enlace a amarillo cuando se pasa el mouse */
+             }
+        }
+
+        section {
+            background-color: white; /* Establece un fondo blanco para secciones */
+            border-radius: 8px; /* redondea las esquinas */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Añade una sombra ligera para dar profundidad */
+        }
+
+        article {
+            margin-bottom: 20px; /* Añade espacio debajo de cada articulo */
+        }
+
+        article:last-child {
+            margin-bottom: 0; /* Elimina el margen inferior de último articulo */ 
         }
     </style>
 </head>
