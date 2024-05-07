@@ -1,23 +1,38 @@
-def segundos_a_minutos():
-    segundos= float(input("ingrese los segundos a convertir"))
-    return segundos/60
+def velocidad(distancia, tiempo):
+    result = distancia/tiempo
+    print("La velocidad seria de: ", str(result))
 
-def minutos_a_horas():
-    minutos= float(input("ingrese los minutos a convertir"))
-    return minutos/60
+def distancia(velocidad, tiempo):
+    result = velocidad*tiempo
+    print("La distancia es de: ", str(result))
 
+def tiempo(distancia, velocidad):
+    result = distancia/velocidad
+    print("El tiempo es de: ", str(result))
 
+def volumendelcubo(lado):
+    result = lado*lado*lado
+    print("El volumens en de: ", str(result))
 
-print("Bienvenido al conversor de tiempo")
-print("1. Segundos a minutos, 2. Minutos a horas")
+def fuerza(masa, aceleracion):
+    result = masa*aceleracion
+    print("La fuerza es: ", str(result))
 
-opcion=input("¿Qué tipo de conversión quiere realizar?")
+def area(lado1, lado2):
+    result = lado1*lado2
+    print("El area es de: ", str(result))
 
-if opcion == "1":
-    print(segundos_a_minutos())
+def trabajo(fuerza, desplazamiento):
+    result = fuerza*desplazamiento
+    print("La fuerza es de: ", str(result))
 
-if opcion == "2":
-    print(minutos_a_horas())
+def velf(velin, aceleracion, tiempo):
+    result = velin+aceleracion*tiempo
+    print("La velocidad final es de: ", str(result))
 
+def velin(velf, aceleracion, tiempo):
+    result = velf-aceleracion*tiempo
+    print("La velocidad inicial es de: ", str(result))
 
-
+def aceleracion(velf, velin, tiempo):
+    result = (velf-velin)/tiempo
