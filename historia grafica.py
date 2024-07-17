@@ -11,6 +11,14 @@ background_image = pygame.image.load("fondo.png")
 background_image = pygame.transform.scale(background_image, (width, height)) 
 screen.blit(background_image, (0,0))
 
+#importaciones de imagenes
+interrogatorio_image = pygame.image.load("interrogatorio.jpg")
+interrogatorio_image = pygame.transform.scale(interrogatorio_image, (width, height))
+investigacion_image = pygame.image.load("investigacion.jpg")
+investigacion_image= pygame.transform.scale(investigacion_image, (width, height ))
+ 
+
+
 def create_button(button, image, position, callback):
     button["image.png"] = image
     button["rect"] = image.get_rect(topleft=position)
@@ -20,7 +28,7 @@ def button_on_click(button, event):
     if event.button == 1:
         if button["rect"].collidepoint(event.pos):
             button["callback"](button)
- 
+
 def push_button_goodbye(button):
     print("")
 
@@ -85,62 +93,36 @@ def handle_buttons(rects, event):
             return state_change
     return None
 
-while True:
+running = True
+while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            pygame.quit()
-            sys.exit()
-        if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
-            if state == INICIO:
-                button_rects = {
-                    pygame.Rect(50, 100, 400, 50): INTERROGA_VICTIMA,
-                    pygame.Rect(50, 150, 400, 50): REVISA_ESCENA,
-                    pygame.Rect(50, 200, 400, 50): REVISA_CAMARAS,
-                }
-                state = handle_buttons(button_rects, event)
-            elif state == INTERROGA_VICTIMA:
-                button_rects = {
-                    pygame.Rect(50, 100, 400, 50): PISTA_VICTIMA,
-                    pygame.Rect(50, 150, 400, 50): TRAUMA_VICTIMA,
-                }
-                state = handle_buttons(button_rects, event)
-            elif state == REVISA_ESCENA:
-                button_rects = {
-                    pygame.Rect(50, 100, 400, 50): PISTA_ESCENA,
-                    pygame.Rect(50, 150, 400, 50): NADA_ESCENA,
-                }
-                state = handle_buttons(button_rects, event)
-            elif state == REVISA_CAMARAS:
-                button_rects = {
-                    pygame.Rect(50, 100, 400, 50): PISTA_CAMARAS,
-                    pygame.Rect(50, 150, 400, 50): NADA_CAMARAS,
-                }
-                state = handle_buttons(button_rects, event)
-           
-
-    
-    if state == INICIO:
-        draw_text("Inicio: El detective recibe el caso", (50, 50))
-        draw_button("¿Interroga a la víctima primero?", pygame.Rect(50, 100, 400, 50))
-        draw_button("¿Revisa la escena del crimen primero?", pygame.Rect(50, 150, 400, 50))
-        draw_button("¿Revisa las cámaras de seguridad primero?", pygame.Rect(50, 200, 400, 50))
-    elif state == INTERROGA_VICTIMA:
-        draw_text("Interroga a la víctima", (50, 50))
-        draw_button("La víctima proporciona una pista crucial", pygame.Rect(50, 100, 400, 50))
-        draw_button("La víctima está demasiado traumatizada para hablar", pygame.Rect(50, 150, 400, 50))
-    elif state == REVISA_ESCENA:
-        draw_text("Revisa la escena del crimen", (50, 50))
-        draw_button("Encuentra una pista importante en la escena", pygame.Rect(50, 100, 400, 50))
-        draw_button("No encuentra nada relevante en la escena", pygame.Rect(50, 150, 400, 50))
-    elif state == REVISA_CAMARAS:
-        draw_text("Revisa las cámaras de seguridad", (50, 50))
-        draw_button("Las cámaras muestran una figura sospechosa", pygame.Rect(50, 100, 400, 50))
-        draw_button("Las cámaras no muestran nada útil", pygame.Rect(50, 150, 400, 50))
-    elif state == PISTA_VICTIMA:
-        draw_text("La víctima proporciona una pista crucial", (50, 50))
-        draw_button("Sigue la pista de la víctima", pygame.Rect(50, 100, 400, 50))
-        
-    pygame.display.flip()
+            running = False
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_1:
+ 
+                    if state == INICIO:
+                        draw_text("Inicio: El detective recibe el caso", (50, 50))
+                        draw_button("¿Interroga a la víctima primero?", pygame.Rect(50, 100, 400, 50))
+                        draw_button("¿Revisa la escena del crimen primero?", pygame.Rect(50, 150, 400, 50))
+                        draw_button("¿Revisa las cámaras de seguridad primero?", pygame.Rect(50, 200, 400, 50))
+                    elif state == INTERROGA_VICTIMA:
+                        draw_text("Interroga a la víctima", (50, 50))
+                        draw_button("La víctima proporciona una pista crucial", pygame.Rect(50, 100, 400, 50))
+                        draw_button("La víctima está demasiado traumatizada para hablar", pygame.Rect(50, 150, 400, 50))
+                    elif state == REVISA_ESCENA:
+                        draw_text("Revisa la escena del crimen", (50, 50))
+                        draw_button("Encuentra una pista importante en la escena", pygame.Rect(50, 100, 400, 50))
+                        draw_button("No encuentra nada relevante en la escena", pygame.Rect(50, 150, 400, 50))
+                    elif state == REVISA_CAMARAS:
+                        draw_text("Revisa las cámaras de seguridad", (50, 50))
+                        draw_button("Las cámaras muestran una figura sospechosa", pygame.Rect(50, 100, 400, 50))
+                        draw_button("Las cámaras no muestran nada útil", pygame.Rect(50, 150, 400, 50))
+                    elif state == PISTA_VICTIMA:
+                        draw_text("La víctima proporciona una pista crucial", (50, 50))
+                        draw_button("Sigue la pista de la víctima", pygame.Rect(50, 100, 400, 50))
+                        
+                    pygame.display.flip()
 
    
     if state == FINAL_BUENO:
