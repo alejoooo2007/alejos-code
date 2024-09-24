@@ -1,0 +1,29 @@
+def grado_Fharenheit(Celsius):
+    return (Celsius * 9/5)+32
+
+def grado_Celsius(Fharenheit):
+    return (Fharenheit - 32)*9/8
+
+while True:
+
+    print("Que conversion desea hacer")
+    print("1. Fharenheit a Celsius")
+    print("2. Celsius a Fharenheit")
+    print("3. Salir del programa")
+
+    opcion = input()
+
+    if opcion == "1":
+        Celsius= float(input("Ingrese su temperatura en Fharenheit: "))
+        print(grado_Fharenheit(Celsius),"Celsius")
+
+    if opcion == "2":
+        Fharenheit = float(input("Ingrese su temperatura en Celsius: "))
+        print(grado_Celsius(Fharenheit),"Fharenheit")
+
+    if opcion == "3":
+        print("Ha salido del programa") 
+        break
+
+
+    
